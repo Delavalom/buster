@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Architecture Overview
+
+## Core Structure
+The Buster repository follows a layered architecture with clear separation of concerns:
+
+1. **Web Client** (`web/`): User-facing UI code
+2. **API Layer** (`api/`): REST and WebSocket routes
+3. **Handlers Layer** (`api/libs/handlers/`): Business logic
+4. **Libraries Layer** (`api/libs/`): Core logic and reusable code
+5. **External Services**: Managed via `warehouse/` and `supabase/`
+
+## Key Directories
+- `api/libs/`: Core backend libraries
+- `api/libs/database/`: Database schema and models
+- `api/libs/handlers/`: Request handling logic
+- `api/prds/`: Product requirements documents
+- `web/src/components/ui/`: Reusable UI components
+- `web/src/components/features/`: Feature-level React components
+- `cli/`: Standalone CLI tool
+- `warehouse/`: Infrastructure as code
+
+## Documentation
+Each major directory must have a `README.md` or `CLAUDE.md` with implementation details and patterns. The root `documentation/` directory contains best practices for:
+- REST APIs
+- Handlers
+- Libraries
+- Testing
+- Tools
+
+## Build & Run
+- Development: `make dev`
+- Stop: `make stop`
+- Backend Tests: `cargo test`
+- Frontend Tests: `vitest`
+- Linting: `cargo clippy`
+- Formatting: `cargo fmt`

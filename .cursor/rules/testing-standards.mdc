@@ -1,0 +1,39 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Testing Standards
+
+## Backend Testing
+### Unit Tests
+- Use `#[tokio::test]` for async tests
+- Place tests in `src/` directory
+- Name test files `*_test.rs`
+
+### Integration Tests
+- Place in `/tests` directory
+- Use `database::test_utils` for setup
+- Follow patterns in [api/libs/database/tests](mdc:api/libs/database/tests)
+
+## Frontend Testing
+### Unit Tests
+- Use Vitest
+- Place in same directory as component
+- Name test files `*.test.ts(x)`
+- Example: [Button.test.tsx](mdc:web/src/components/ui/buttons/Button.test.tsx)
+
+### Integration Tests
+- Use Playwright
+- Place in `playwright-tests/`
+- Follow patterns in [web/playwright-tests](mdc:web/playwright-tests)
+
+## Test Data
+- Use `database::test_utils` for backend
+- Use mocks in `web/src/mocks` for frontend
+- Never use production data in tests
+
+## CI/CD
+- Run tests on every PR
+- Use GitHub Actions
+- Follow patterns in [.github/workflows](mdc:.github/workflows)

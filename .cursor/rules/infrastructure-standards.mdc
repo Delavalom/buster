@@ -1,0 +1,36 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Infrastructure Standards
+
+## Directory Structure
+- `warehouse/`: Infrastructure as code
+  - `python/`: Python-based infrastructure
+  - `terraform/`: Terraform configurations
+  - `helm_values/`: Helm chart values
+- `supabase/`: Supabase configuration
+  - `docker-compose.yml`: Local development setup
+  - `docker-compose.s3.yml`: S3 integration
+
+## Docker
+- Use multi-stage builds
+- Follow patterns in:
+  - [api/Dockerfile](mdc:api/Dockerfile)
+  - [web/Dockerfile](mdc:web/Dockerfile)
+
+## Infrastructure as Code
+### Terraform
+- Use modules for reusable components
+- Follow naming conventions
+- Document all variables and outputs
+
+### Helm
+- Use values files for environment-specific configs
+- Follow patterns in [warehouse/helm_values](mdc:warehouse/helm_values)
+
+## Local Development
+- Use `docker-compose.yml` for local services
+- Follow setup instructions in [warehouse/README.md](mdc:warehouse/README.md)
+- Use `make dev` to start development environment

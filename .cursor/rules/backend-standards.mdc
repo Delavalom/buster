@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Backend Standards
+
+## Rust Code Style
+- Use `anyhow::Result` for error handling
+- Group imports logically
+- Use snake_case for functions and variables
+- Use PascalCase for types
+- Never log secrets or sensitive data
+
+## Library Structure
+Each library in `api/libs/` must:
+- Have its own `Cargo.toml`
+- Include `src/` and `tests/` directories
+- Use workspace dependencies with `{ workspace = true }`
+
+## Database
+- All database code lives in `api/libs/database/`
+- Use `database::test_utils` for test setup and cleanup
+- All queries in `query_engine` must default to a 5000 row limit unless explicitly overridden
+
+## API Patterns
+### REST
+- Follow patterns in [api/documentation/rest.mdc](mdc:api/documentation/rest.mdc)
+- Types should be in `api/types/` or route files
+
+### WebSocket
+- Follow patterns in [api/documentation/websockets.mdc](mdc:api/documentation/websockets.mdc)
+
+## Testing
+- Use `#[tokio::test]` for async tests
+- Place integration tests in each library's `/tests` directory
+- Use `database::test_utils` for test data setup

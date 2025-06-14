@@ -1,0 +1,41 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Frontend Standards
+
+## TypeScript Code Style
+- Always use the `type` keyword when importing types
+- Prefer functional components and hooks
+- Use Tailwind for custom elements
+- Never log secrets or sensitive data
+
+## Component Structure
+### UI Components (`web/src/components/ui/`)
+- Reusable, generic components
+- Include stories for Storybook
+- Follow atomic design principles
+- Examples:
+  - [Button.tsx](mdc:web/src/components/ui/buttons/Button.tsx)
+  - [Text.tsx](mdc:web/src/components/ui/typography/Text.tsx)
+  - [TanStackDataGrid.tsx](mdc:web/src/components/ui/table/AppDataGrid/TanStackDataGrid/TanStackDataGrid.tsx)
+
+### Feature Components (`web/src/components/features/`)
+- Feature-specific components
+- May use UI components
+- Organized by feature area
+- Examples:
+  - [ShareMenu](mdc:web/src/components/features/ShareMenu)
+  - [auth](mdc:web/src/components/features/auth)
+
+## Testing
+- Use Vitest
+- Place tests in the same folder as the file being tested
+- Name test files `*.test.ts(x)`
+- Include both unit and integration tests
+
+## State Management
+- Use React Context for global state
+- Use hooks for local state
+- Follow patterns in [web/src/context](mdc:web/src/context)
